@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f7dfe1;--ink:#5a3a42;--soft:#a67c86;--accent:#d4627f;--paper:#fff8f6}
-@media (prefers-color-scheme:dark){:root{--bg:#2e1d23;--ink:#f5dfe3;--soft:#b8909a;--paper:#f3e5e2}}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;overflow:hidden}
 body{background:var(--bg);color:var(--ink);font-family:'Courier Prime',monospace;line-height:1.7;
@@ -32,7 +31,18 @@ box-shadow:0 8px 22px #0005;transform:rotate(var(--r));animation:drop 1.4s cubic
 .bl{bottom:3%;left:6%;--r:3deg;--d:1.2s}
 @keyframes drop{from{opacity:0;transform:translateY(-40px) rotate(calc(var(--r) - 8deg))}}
 @keyframes in{from{opacity:0;transform:translateY(12px)}}
-@media (max-aspect-ratio:1/1){:root{--w:30vw}.mr{right:1%}main{max-width:62vw;max-height:66dvh;justify-self:start;margin-left:3vw}}
+@media (max-aspect-ratio:1/1){
+:root{--w:38vw}
+html,body{height:auto;overflow-x:hidden;overflow-y:auto}
+body{display:block;padding:22px 16px 30px}
+.pola{position:static;margin:0}
+.tl{float:left;margin:4px 14px 6px 0}
+.mr{float:right;margin:70vw 0 8px 12px}
+.bl{clear:both;margin:26px 0 0 6vw}
+main{max-width:none;max-height:none;overflow:visible;padding:0;text-align:left;font-size:15px}
+h1{font-size:2.4em;text-align:center}
+.sign{text-align:right}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -40,32 +50,33 @@ box-shadow:0 8px 22px #0005;transform:rotate(var(--r));animation:drop 1.4s cubic
 
 <figure class="pola tl"><div class="ph"><img src="1.jpg" alt="" onerror="this.remove()"></div><figcaption><!-- légende --></figcaption></figure>
 <figure class="pola mr"><div class="ph"><img src="2.jpg" alt="" onerror="this.remove()"></div><figcaption></figcaption></figure>
-<figure class="pola bl"><div class="ph"><img src="3.jpg" alt="" onerror="this.remove()"></div><figcaption></figcaption></figure>
 
 <main>
   <h1>Bonne route,<br>Julie ✿</h1>
  
   <p>Salut Julie ! Aujourd'hui est un jour assez particulier pour toi.</p>
   <p>C'est un chapitre qui se tourne et je suis chanceux d'avoir pu te rencontrer.</p>
-  <p>C'est vrais qu'en deux ans je n'ai peut être pas eu le temps de faire le tour de qui tu étais.</p>
+  <p>C'est vrai qu'en deux ans je n'ai peut-être pas eu le temps de faire le tour de qui tu étais.</p>
   <p>Mais je sais que tu es une personne solaire qui sait redonner de la lumière dans le quotidien de nous tous </p>
   <p>Et je sais que tu vas continuer à illuminer le quotidien de ceux qui croiseront ton chemin.</p>
-  <p>Ne changes pas, tu es une personne formidable</p>
-  <p>Merci énormément pour tout ces moments passés ensemble.</p>
-  <p>Mais toutes les bonnes choses ont une fin!</p>
+  <p>Ne change pas, tu es une personne formidable</p>
+  <p>Merci énormément pour tous ces moments passés ensemble.</p>
+  <p>Mais toutes les bonnes choses ont une fin !</p>
   <p>Comme disait Victor Hugo ! La nostalgie c'est le bonheur d'être triste</p>
   <p>Et te voilà pour de nouvelles aventures, de nouveaux projets et de nouvelles rencontres.</p>
-  <p>Je te souhaite le meilleur pour la suite, la santé, la réussite, le bonheur!</p>
-  <p>Et n'oublie pas que le parebrise de la voiture est plus grand que le rétroviseur</p>
-  <p> Alors avance et vie une nouvelle aventure car je sais que tu ne nous oublieras pas</p>
+  <p>Je te souhaite le meilleur pour la suite, la santé, la réussite, le bonheur !</p>
+  <p>Et n'oublie pas que le pare-brise de la voiture est plus grand que le rétroviseur</p>
+  <p> Alors avance et vis une nouvelle aventure car je sais que tu ne nous oublieras pas</p>
   <p> Tout comme nous ne t'oublierons pas !</p>
-  <div class="sign">Yacine (le developpeur qui te dois une faveure)</div>
+  <div class="sign">Yacine (le développeur qui te doit une faveur)</div>
 </main>
+
+<figure class="pola bl"><div class="ph"><img src="3.jpg" alt="" onerror="this.remove()"></div><figcaption></figcaption></figure>
 
 <script>
 // réduit la taille du texte jusqu'à ce que tout tienne sans scroll
 const m=document.querySelector('main');
-function fit(){let s=20;m.style.fontSize=s+'px';while(m.scrollHeight>m.clientHeight&&s>8)m.style.fontSize=(s-=.5)+'px'}
+function fit(){if(matchMedia('(max-aspect-ratio:1/1)').matches){m.style.fontSize='';return}let s=20;m.style.fontSize=s+'px';while(m.scrollHeight>m.clientHeight&&s>8)m.style.fontSize=(s-=.5)+'px'}
 addEventListener('resize',fit);addEventListener('load',fit);document.fonts.ready.then(fit);
 </script>
 </body>
